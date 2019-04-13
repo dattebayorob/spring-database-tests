@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.5//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dtb.springdatabase.model.mappers.PeopleMapper">
+	<select resultType="com.dtb.springdatabase.model.vos.PeopleVO" id="findAll">
+		select id,name,cityName from 
+		(select p.id id,
+			p.name as name,
+			a.id as address,
+			c.name as cityName
+			from people.people p
+			join place.address a on a.id = p.id_address
+			join place.city c on c.id = a.id_city
+			group by p.id,a.id,c.name
+			order by p.name
+		)p
+	</select>
+
+</mapper>
