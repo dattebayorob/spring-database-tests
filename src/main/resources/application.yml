@@ -1,15 +1,23 @@
 server:
   port: 8081
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/databaseone
-    username: postgres
-    password: postgres
-    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+dbone:
+  datasource:
+    jdbc-url: jdbc:postgresql://localhost:5432/databaseone
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+dbtwo:
+  datasource:
+    jdbc-url: jdbc:postgresql://localhost:5432/databasetwo
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
 
 mybatis:
   type-aliases-package: com.dtb.springdatabase
