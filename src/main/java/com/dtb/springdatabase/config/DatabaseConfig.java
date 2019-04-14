@@ -11,7 +11,6 @@ import static com.dtb.springdatabase.config.constants.Database.DATASOURCE_PU_TWO
 import static com.dtb.springdatabase.config.constants.Database.DATASOURCE_TRANSACTION_MANAGER_ONE;
 import static com.dtb.springdatabase.config.constants.Database.DATASOURCE_TRANSACTION_MANAGER_TWO;
 import static com.dtb.springdatabase.config.constants.Database.ENTITIES_PACKAGES;
-import static com.dtb.springdatabase.config.constants.Database.REPOSITORIES_PACKAGES;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
@@ -24,7 +23,6 @@ import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -32,7 +30,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(entityManagerFactoryRef = "entityManagerFactoryOne", transactionManagerRef = "transactionManagerOne", basePackages = REPOSITORIES_PACKAGES)
 @MapperScan(basePackages = "com.dtb.springdatabase.model.mappers")
 public class DatabaseConfig {
 	@Primary

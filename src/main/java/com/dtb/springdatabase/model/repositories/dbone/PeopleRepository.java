@@ -1,4 +1,4 @@
-package com.dtb.springdatabase.model.repositories;
+package com.dtb.springdatabase.model.repositories.dbone;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
