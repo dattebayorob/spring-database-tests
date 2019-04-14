@@ -3,6 +3,7 @@ package com.dtb.springdatabase.model.repositories.dbtwo;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Before;
@@ -35,5 +36,17 @@ public class LogInsertionRepositoryTest {
 		logs.forEach(l -> log.info("Log of Insertions: {}",l));
 		assertNotNull(logs);
 		assertFalse(logs.isEmpty());
+	}
+	
+	@Test
+	public void testSave() {
+		LogInsertion logInsertion = repository
+				.save(
+						LogInsertion.builder()
+							.description("Hey, Something was inserted Dude")
+							.date(new Date())
+						.build()
+				);
+		assertNotNull(logInsertion.getId());
 	}
 }

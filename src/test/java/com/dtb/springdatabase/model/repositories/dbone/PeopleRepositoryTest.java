@@ -37,4 +37,12 @@ public class PeopleRepositoryTest {
 		assertFalse(peoples.isEmpty());
 	}
 	
+	@Test
+	public void testFindByAddressCityNameContaining() {
+		List<People> peoples = repository.findByAddressCityNameContaining("taleza");
+		peoples.forEach(p -> log.info("Name: {}",p.getName()));
+		assertNotNull(peoples);
+		assertFalse(peoples.isEmpty());
+	}
+	
 }

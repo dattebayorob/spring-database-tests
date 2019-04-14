@@ -18,9 +18,3 @@ dbtwo:
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
-
-mybatis:
-  type-aliases-package: com.dtb.springdatabase
-  mapper-locations:
-  - classpath:mybatis/*.xml
-  

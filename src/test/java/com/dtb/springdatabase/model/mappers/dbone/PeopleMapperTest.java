@@ -1,4 +1,4 @@
-package com.dtb.springdatabase.model.mappers;
+package com.dtb.springdatabase.model.mappers.dbone;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.dtb.springdatabase.model.mappers.dbone.PeopleMapper;
 import com.dtb.springdatabase.model.vos.PeopleVO;
 
 @RunWith(SpringRunner.class)
@@ -31,8 +32,8 @@ public class PeopleMapperTest {
 	}
 	
 	@Test
-	public void testFindAll() {
-		List<PeopleVO> peoples = mapper.findAll();
+	public void testFindByAddressCityName() {
+		List<PeopleVO> peoples = mapper.findByAdressCityName("taleza");
 		peoples.forEach(p -> log.info(p.toString()));
 		assertNotNull(peoples);
 		assertTrue(peoples.size() > 0);
