@@ -17,10 +17,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Builder
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -31,7 +34,7 @@ public class EntityOne {
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
-	@OneToMany(mappedBy = "one", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "one", cascade = CascadeType.MERGE)
 	Set<OneToTwo> twos;
 	
 	public Set<OneToTwo> getTwos(){
